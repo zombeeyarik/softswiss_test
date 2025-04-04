@@ -1,0 +1,78 @@
+@import '../../scss/setting.scss';
+
+.offer {
+    $root: &;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    border-radius: 10px;
+    height: 100%;
+    padding: 35px;
+    transition: background-size 20s linear;
+
+    &:hover {
+        background-size: 300%;
+    }
+
+    &__title {
+        font-size: rem(40);
+        margin-bottom: 20px;
+        max-width: 80%;
+
+        @include respond-to(tablet) {
+            width: 80%;
+        }
+
+        @include respond-to(desktop) {
+            font-size: rem(46);
+
+            .offers__item--wide & {
+                font-size: rem(74);
+            }
+        }
+    }
+
+    &__subtitle {
+        font-size: rem(16);
+        margin-bottom: 20px;
+
+        @include respond-to(desktop) {
+            font-size: rem(24);
+
+            .offers__item--wide & {
+                font-size: rem(26);
+            }
+        }
+    }
+
+    &__link {
+        @include g-cta(secondary);
+
+        #{$root}:hover & {
+            animation: tilt-shaking 0.3s infinite;
+
+            &:hover {
+                animation-play-state: paused;
+            }
+        }
+
+        @keyframes tilt-shaking {
+            0% {
+                transform: rotate(0deg);
+            }
+            25% {
+                transform: rotate(1deg);
+            }
+            50% {
+                transform: rotate(0eg);
+            }
+            75% {
+                transform: rotate(-1deg);
+            }
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+    }
+}

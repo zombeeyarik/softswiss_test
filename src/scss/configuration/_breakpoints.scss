@@ -1,0 +1,36 @@
+// BREAKPOINTS
+$tablet: 768px;
+$desktop: 1024px;
+
+@mixin respond-to($media) {
+    // from 0 to 767
+    @if $media == mobile {
+        @media screen and (max-width: ($tablet - 1)) {
+            @content;
+        }
+    }
+    // from 768 to 1023
+    @if $media == tablet {
+        @media screen and (min-width: $tablet) and (max-width: ($desktop - 1)) {
+            @content;
+        }
+    }
+    // from 1024
+    @if $media == desktop {
+        @media screen and (min-width: $desktop) {
+            @content;
+        }
+    }
+    // to 1023
+    @if $media == to_desktop {
+        @media screen and (max-width: ($desktop - 1)) {
+            @content;
+        }
+    }
+    // from 768
+    @if $media == from_tablet {
+        @media screen and (min-width: $tablet) {
+            @content;
+        }
+    }
+}

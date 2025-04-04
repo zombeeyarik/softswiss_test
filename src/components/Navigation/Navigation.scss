@@ -1,0 +1,190 @@
+@import '../../scss/setting.scss';
+
+.nav {
+    @include respond-to(mobile) {
+        $header_height: 80px;
+
+        @include gutter;
+
+        background-color: $blue32;
+        height: calc(100dvh - $header_height);
+        left: 0;
+        position: absolute;
+        top: $header_height;
+        transform: translateX(-100%);
+        transition: all 0.3s ease-out;
+        width: 100%;
+        z-index: 2;
+    }
+
+    &--open {
+        transform: translateX(0);
+    }
+
+    &__list {
+        align-items: center;
+        display: flex;
+        gap: 0 50px;
+
+        @include respond-to(mobile) {
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 20px;
+            padding: 40px 0;
+        }
+    }
+
+    &__link {
+        background: linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 1) 0%,
+            rgba(255, 255, 255, 1) 100%
+        );
+        background-clip: text;
+        background-clip: text;
+        font-size: rem(18);
+        -webkit-text-fill-color: transparent;
+
+        &--cart {
+            font-size: 0;
+        }
+
+        &:hover {
+            background: linear-gradient(
+                90deg,
+                rgba(235, 255, 0, 1) 0%,
+                rgba(255, 112, 217, 1) 100%
+            );
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            path {
+                fill: url(#gradient-fill);
+            }
+        }
+    }
+
+    &__image {
+        height: 20px;
+
+        .nav__link:hover & {
+            mask-image: linear-gradient(
+                rgba(235, 255, 0, 1) 0%,
+                rgba(255, 112, 217, 1) 100%
+            );
+        }
+    }
+}
+
+.nav-toggle {
+    background: none;
+    border: 0;
+    cursor: pointer;
+    display: block;
+    height: 50px;
+    padding: 0;
+    position: relative;
+    width: 50px;
+    z-index: 999;
+
+    &__line {
+        background-color: $white;
+        height: 2px;
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 20px;
+
+        &:before,
+        &:after {
+            background-color: $white;
+            content: '';
+            height: 2px;
+            left: 0;
+            position: absolute;
+            width: 20px;
+        }
+
+        &:before {
+            animation: burger3 250ms linear;
+            transform: translateY(-5px);
+        }
+
+        @keyframes burger3 {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-5px) rotate(0deg);
+            }
+        }
+
+        &:after {
+            animation: burger4 250ms linear;
+            transform: translateY(5px);
+        }
+
+        @keyframes burger4 {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(5px) rotate(0deg);
+            }
+        }
+    }
+
+    &[aria-expanded='true'] &__line {
+        visibility: hidden;
+
+        &:before,
+        &:after {
+            background-color: $white;
+            transform-origin: center center;
+            transform: translateY(0);
+            transition: all 250ms linear;
+            visibility: visible;
+        }
+
+        &:before {
+            animation: burger1 250ms linear;
+            transform: rotate(-45deg);
+        }
+
+        @keyframes burger1 {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(0) rotate(-45deg);
+            }
+        }
+
+        &:after {
+            animation: burger2 250ms linear;
+            transform: rotate(45deg);
+        }
+
+        @keyframes burger2 {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(0) rotate(45deg);
+            }
+        }
+    }
+}

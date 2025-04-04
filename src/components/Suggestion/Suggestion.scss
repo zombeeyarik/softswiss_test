@@ -1,0 +1,81 @@
+@import '../../scss/setting.scss';
+
+.suggestion {
+    $root: &;
+
+    padding-top: 50px;
+
+    &__title {
+        font-size: rem(18);
+        margin-bottom: 15px;
+
+        @include respond-to(tablet) {
+            font-size: rem(24);
+        }
+
+        @include respond-to(desktop) {
+            font-size: rem(32);
+        }
+    }
+
+    &__text {
+        --max-lines: 2;
+        --line-height: 1.5;
+
+        // SOLUTION #1: with webkit-box
+        //
+        // display: -webkit-box;
+        // -webkit-box-orient: vertical;
+        // -webkit-line-clamp: var(--max-lines);
+
+        // SOLUTION #2: with calculated height and line-height
+        //
+        line-height: var(--line-height);
+        max-height: calc(var(--max-lines) * 1em * var(--line-height));
+
+        font-size: rem(14);
+        margin-bottom: 15px;
+        overflow: hidden;
+        transition: all 1s ease-in-out;
+
+        @include respond-to(tablet) {
+            font-size: rem(16);
+        }
+
+        @include respond-to(desktop) {
+            font-size: rem(20);
+            line-height: 100%;
+        }
+
+        #{$root}__checkbox:checked ~ & {
+            max-height: 1000px;
+        }
+    }
+
+    &__checkbox {
+        &--hidden {
+            @include hidden;
+        }
+    }
+
+    &__button {
+        @include g-cta(link);
+    }
+
+    &__button-text {
+        &--expanded {
+            display: none;
+
+            #{$root}__checkbox:checked ~ #{$root}__button & {
+                display: inline;
+            }
+        }
+
+        &--collapsed {
+            display: inline;
+            #{$root}__checkbox:checked ~ #{$root}__button & {
+                display: none;
+            }
+        }
+    }
+}

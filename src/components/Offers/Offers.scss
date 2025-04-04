@@ -1,0 +1,41 @@
+@import '../../scss/setting.scss';
+
+.offers {
+    $offers_gap: 40px;
+
+    padding-top: 40px;
+
+    &__title {
+        font-size: rem(18);
+        margin-bottom: 15px;
+
+        @include respond-to(tablet) {
+            font-size: rem(24);
+        }
+
+        @include respond-to(desktop) {
+            font-size: rem(32);
+        }
+    }
+
+    &__list {
+        align-items: stretch;
+        display: flex;
+        flex-wrap: wrap;
+        gap: $offers_gap;
+    }
+
+    &__item {
+        width: 100%;
+
+        @include respond-to(from_tablet) {
+            width: calc(50% - $offers_gap/2);
+        }
+
+        @include respond-to(desktop) {
+            &--wide {
+                width: 100%;
+            }
+        }
+    }
+}

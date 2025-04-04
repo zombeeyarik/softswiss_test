@@ -1,0 +1,10 @@
+@import '../../scss/setting.scss';
+
+.footer {
+    align-items: center;
+    background-color: $black;
+    color: $yellow50;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}

@@ -1,0 +1,9 @@
+@import 'scss/setting.scss';
+@import 'scss/base/general.scss';
+@import 'scss/blocks/b-cta.scss';
+
+.container {
+    @include site_width;
+
+    margin-bottom: 40px;
+}

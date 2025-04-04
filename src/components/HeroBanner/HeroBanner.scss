@@ -1,0 +1,132 @@
+@import '../../scss/setting.scss';
+
+.hero-banner {
+    $root: &;
+
+    align-items: center;
+    background-image: linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(15, 20, 32, 0.79) 100%
+        ),
+        image-set(
+            '../../assets/heroBanner/hero-banner.webp' 1x,
+            '../../assets/heroBanner/hero-banner@2x.webp' 2x
+        );
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    overflow: hidden;
+    position: relative;
+    transition: background-size 20s ease-in-out;
+
+    &:hover {
+        background-size: 300%;
+    }
+
+    &__container {
+        @include holder;
+
+        min-height: 500px;
+
+        @include respond-to(from_tablet) {
+            align-items: center;
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+        }
+    }
+
+    &__content {
+        @include gutter;
+
+        @include respond-to(mobile) {
+            padding-bottom: 40px;
+            text-align: center;
+        }
+
+        @include respond-to(tablet) {
+            width: 60%;
+        }
+
+        @include respond-to(desktop) {
+            width: 70%;
+        }
+    }
+
+    &__title {
+        font-size: rem(36);
+        margin-bottom: 22px;
+
+        @include respond-to(tablet) {
+            font-size: rem(48);
+        }
+
+        @include respond-to(desktop) {
+            font-size: rem(72);
+        }
+
+        &--highlight {
+            color: $red72;
+        }
+    }
+
+    &__subtitle {
+        font-size: rem(16);
+        margin-bottom: 22px;
+
+        @include respond-to(tablet) {
+            font-size: rem(22);
+        }
+
+        @include respond-to(desktop) {
+            font-size: rem(32);
+        }
+
+        &--highlight {
+            color: $yellow50;
+        }
+    }
+
+    &__button {
+        @include g-cta(primary);
+    }
+
+    &__image {
+        #{$root}:hover & {
+            animation: horizontal-shaking 0.4s linear infinite;
+        }
+
+        @include respond-to(mobile) {
+            display: flex;
+            justify-content: center;
+            margin-top: -100px;
+        }
+
+        @include respond-to(tablet) {
+            transform: translateX(100px);
+        }
+
+        @include respond-to(desktop) {
+            display: flex;
+        }
+
+        @keyframes horizontal-shaking {
+            0% {
+                transform: translateX(0);
+            }
+            25% {
+                transform: translateX(2px);
+            }
+            50% {
+                transform: translateX(-2px);
+            }
+            75% {
+                transform: translateX(2px);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+    }
+}

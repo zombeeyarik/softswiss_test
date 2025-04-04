@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/static/css/main.5f752323.css",
+    "main.js": "/static/js/main.b902b9bf.js",
+    "static/media/hero-banner@2x.webp": "/static/media/hero-banner@2x.a66999fad49dfa64fe2d.webp",
+    "static/media/hero-banner.webp": "/static/media/hero-banner.61092d25680cc2db504d.webp",
+    "static/media/offer-04@2x.webp": "/static/media/offer-04@2x.7fc7a070550a1a0a6b02.webp",
+    "static/media/offer-03@2x.webp": "/static/media/offer-03@2x.3675b3a55126cd97c746.webp",
+    "static/media/offer-01@2x.webp": "/static/media/offer-01@2x.5b9e616493bdff72c6b5.webp",
+    "static/media/planet@2x.webp": "/static/media/planet@2x.85313abcecbcd0185b3a.webp",
+    "static/media/offer-02@2x.webp": "/static/media/offer-02@2x.6798b33afdaf0620ddb7.webp",
+    "static/media/offer-04.webp": "/static/media/offer-04.1d39ca9552c59e6e22ca.webp",
+    "static/media/offer-03.webp": "/static/media/offer-03.e534e638668195b28c44.webp",
+    "static/media/offer-01.webp": "/static/media/offer-01.6955a9f10b2311758617.webp",
+    "static/media/offer-02.webp": "/static/media/offer-02.a2cf59a78a338f63fe90.webp",
+    "static/media/planet.webp": "/static/media/planet.f81a45f98a69508783af.webp",
+    "static/media/rocket-icon@2x.webp": "/static/media/rocket-icon@2x.2585e2b238f9972c09c8.webp",
+    "static/media/rocket-icon.webp": "/static/media/rocket-icon.5f6760e0df6305f9a1a0.webp",
+    "index.html": "/index.html",
+    "main.5f752323.css.map": "/static/css/main.5f752323.css.map",
+    "main.b902b9bf.js.map": "/static/js/main.b902b9bf.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5f752323.css",
+    "static/js/main.b902b9bf.js"
+  ]
+}

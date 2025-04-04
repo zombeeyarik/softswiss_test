@@ -1,0 +1,19 @@
+.b-button {
+    @include g-cta(primary);
+
+    &--primary {
+        @include g-cta(primary);
+    }
+
+    &--secondary {
+        @include g-cta(outline);
+    }
+
+    &--link {
+        @include g-cta(link);
+    }
+}
+
+.b-link {
+    @include g-cta(link);
+}

@@ -1,0 +1,68 @@
+@mixin g-cta($_theme: primary) {
+    @if $_theme == primary {
+        @include g-cta_constructor(default);
+    }
+
+    @if $_theme == secondary {
+        @include g-cta_constructor(outline);
+    }
+
+    @if $_theme == link {
+        @include g-cta_constructor(link);
+    }
+}
+
+@mixin g-cta_constructor($_mod: default) {
+    @if $_mod != link {
+        $button_radius_regular: 100px;
+
+        display: inline-block;
+        border-radius: $button_radius_regular;
+        padding: 14px 40px;
+        font-weight: 700;
+        transition: all 0.2s ease-in;
+
+        @include hover {
+            opacity: 0.6;
+        }
+
+        @if $_mod == default {
+            background-color: $yellow50;
+            color: $black;
+        }
+
+        @if $_mod == outline {
+            border: 2px solid $yellow50;
+            color: $yellow50;
+        }
+    }
+
+    @if $_mod == link {
+        color: $yellow50;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+
+        @include hover {
+            opacity: 0.6;
+        }
+    }
+}
+
+@mixin disabled() {
+    &.m-disabled,
+    &:disabled {
+        @content;
+    }
+}
+
+@mixin hover() {
+    &:hover {
+        @content;
+    }
+}
+
+@mixin active() {
+    &:active {
+        @content;
+    }
+}
