@@ -20,7 +20,7 @@
     position: relative;
     transition: background-size 20s ease-in-out;
 
-    @include respond-to(from_tablet) {
+    @include respond-to(desktop) {
         background-size: 100%;
 
         &:hover {
@@ -97,8 +97,10 @@
     }
 
     &__image {
-        #{$root}:hover & {
-            animation: horizontal-shaking 0.4s linear infinite;
+        @include respond-to(desktop) {
+            #{$root}:hover & {
+                animation: horizontal-shaking 0.4s linear infinite;
+            }
         }
 
         @include respond-to(mobile) {
@@ -131,6 +133,12 @@
             100% {
                 transform: translateX(0);
             }
+        }
+    }
+
+    &__image-src {
+        @include respond-to(mobile) {
+            height: 300px;
         }
     }
 }
